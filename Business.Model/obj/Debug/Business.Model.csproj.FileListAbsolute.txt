@@ -1,0 +1,6 @@
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\bin\Debug\Business.Model.dll
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\bin\Debug\Business.Model.pdb
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\obj\Debug\Business.Model.csproj.AssemblyReference.cache
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\obj\Debug\Business.Model.csproj.CoreCompileInputs.cache
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\obj\Debug\Business.Model.dll
+C:\Users\Computer\source\repos\DiagrammApp\Business.Model\obj\Debug\Business.Model.pdb

@@ -1,0 +1,9 @@
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\obj\Debug\Logic.Ui.csproj.AssemblyReference.cache
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\obj\Debug\Logic.Ui.csproj.CoreCompileInputs.cache
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\bin\Debug\Logic.Ui.dll
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\bin\Debug\Logic.Ui.pdb
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\bin\Debug\Business.Model.dll
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\bin\Debug\Business.Model.pdb
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\obj\Debug\Logic.Ui.csproj.CopyComplete
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\obj\Debug\Logic.Ui.dll
+C:\Users\Computer\source\repos\DiagrammApp\Logic.Ui\obj\Debug\Logic.Ui.pdb

@@ -1,0 +1,6 @@
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\bin\Debug\Services.MessageBus.dll
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\bin\Debug\Services.MessageBus.pdb
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\obj\Debug\Services.MessageBus.csproj.AssemblyReference.cache
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\obj\Debug\Services.MessageBus.csproj.CoreCompileInputs.cache
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\obj\Debug\Services.MessageBus.dll
+C:\Users\Computer\source\repos\DiagrammApp\Services.MessageBus\obj\Debug\Services.MessageBus.pdb
