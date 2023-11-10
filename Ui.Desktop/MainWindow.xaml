@@ -49,5 +49,6 @@
                 <Button Command="{Binding DebugCommand}" Content="Diagramm anzeigen" Width="150"/>
             </StackPanel>
         </Grid>
+        <Grid/>
     </Grid>
 </Window>
