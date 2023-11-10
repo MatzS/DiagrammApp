@@ -1,36 +1,27 @@
 ﻿using De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
 {
-    public class TableViewModel
+    public class TableViewModel: ObservableCollection<RowViewModel>
     {
-        private Table table;
-
-        public TableViewModel ()
+        private Table model = new Table();
+        private HeaderViewModel headerModel = new HeaderViewModel();
+        public TableViewModel() 
         {
-            table = new Table();
-            table.AddColumn("TestSpalte");
+           
         }
+        
 
-        public Table Table
+        public void AddRow(RowViewModel rowModel)
         {
-            get { return table; }
-        }
-
-        public ArrayList Columns
-        {
-            get { return table.Columns; }
-        }
-
-        public void AddColumn (String title = "New Column")
-        {
-            table.Columns.Add (new ColumnViewModel(title));
+            this.Add(rowModel);
+            this.model.Add(rowModel.Model);
         }
     }
 }

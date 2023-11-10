@@ -1,28 +1,46 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects
 {
-    public class Table
+    public class Table: ObservableCollection<Row>
     {
-        private ArrayList columns;
-        public ArrayList  Columns
-        {
-            get { return columns; }
-        }
-
+        private Header header = new Header();
         public Table()
         {
-            columns = new ArrayList();
+
         }
 
-        public void AddColumn(String title = "New Column")
+        public Header Header 
         {
-            this.columns.Add(new Column(title));
+            get 
+            { 
+                return header; 
+            }
+            set 
+            {
+                header = value;
+            }
+        }
+
+        public void AddRow(String title = "New Column")
+        {
+            this.Add(new Row());
+        }
+
+        public void AddHeaderTile(string title)
+        {
+            this.header.Add(title);
+        }
+
+        public void RemoveHeaderTitle(string title)
+        {
+            this.header.Remove(title);
         }
     }
 }
