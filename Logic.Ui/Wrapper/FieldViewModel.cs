@@ -16,5 +16,9 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
             this.model = new Field(value);
         }
 
+        public Field Model
+        {
+            get { return this.model; }
+        }
     }
 }

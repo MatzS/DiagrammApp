@@ -4,33 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:De.HsFlensburg.DiagrammApp.Ui.Desktop"
-        xmlns:viewModel="clr-namespace:De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels;assembly=Logic.Ui"
+        xmlns:viewModels="clr-namespace:De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels;assembly=Logic.Ui"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}" Path="TheMainWindowViewModel"></Binding>
     </Window.DataContext>
+    <!--<Window.Resources>
+        <viewModels:MainWindowViewModel x:Key="viewModel"></viewModels:MainWindowViewModel>
+    </Window.Resources>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Name="dataGrid" AutoGenerateColumns="False" Background="LightGray" ItemsSource="{Binding Table.Columns}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="Values" Binding="{Binding Values}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                    <DataGridTextColumn.EditingElementStyle>
-                        <Style TargetType="TextBox">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.EditingElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
+        <DataGrid Width="Auto" ItemsSource="{Binding Table.Rows}" CanUserAddRows="True" HorizontalAlignment="Left" Grid.Row="0" Name="dataGrid" AutoGenerateColumns="False">
         </DataGrid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -44,8 +32,10 @@
                 <ComboBoxItem>Kurvendiagramm</ComboBoxItem>
             </ComboBox>
             <StackPanel Grid.Column="1" VerticalAlignment="Top">
-                <Button Command="{Binding DebugCommand}" Content="Spalte hinzufügen" Width="150"/>
-                <Button Command="{Binding DebugCommand}" Content="Spalte entfernen" Width="150"/>
+                <Button Command="{Binding AddColumnCommand}" Content="Spalte hinzufügen" Width="150"/>
+                <Button Command="{Binding RemoveColumnCommand}" Content="Spalte entfernen" Width="150"/>
+                <Button Command="{Binding AddRowCommand}" Content="Zeile hinzufügen" Width="150"/>
+                <Button Command="{Binding RemoveRowCommand}" Content="Reihe entfernen" Width="150"/>
                 <Button Command="{Binding DebugCommand}" Content="Diagramm anzeigen" Width="150"/>
             </StackPanel>
         </Grid>

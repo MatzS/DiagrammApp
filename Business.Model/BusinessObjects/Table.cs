@@ -28,12 +28,26 @@ namespace De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects
             }
         }
 
-        public void AddRow(String title = "New Column")
+        public void AddRow()
         {
-            this.Add(new Row());
+            Row row = new Row();
+            for(int i = 0; i> header.Count; i++)
+            {
+                row.Add(new Field("Test"));
+            }
+            this.Add(row);
         }
 
-        public void AddHeaderTile(string title)
+        public void AddField(Field field = null, int index = 0)
+        {
+            if(field == null)
+            {
+                field = new Field("test");
+            }
+            this[index].Add(field);
+        }
+
+        public void AddHeaderTitle(string title)
         {
             this.header.Add(title);
         }

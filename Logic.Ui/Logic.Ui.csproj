@@ -48,7 +48,10 @@
     <Compile Include="Wrapper\FieldViewModel.cs" />
     <Compile Include="Wrapper\HeaderViewModel.cs" />
     <Compile Include="Wrapper\RowViewModel.cs" />
+    <Compile Include="Wrapper\TableData.cs" />
+    <Compile Include="Wrapper\TableDataRow.cs" />
     <Compile Include="Wrapper\TableViewModel.cs" />
+    <Compile Include="Wrapper\TestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />

@@ -12,12 +12,19 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui
     {
         public TableViewModel TheTableViewModel { get; set; }
 
+        public TestViewModel TheTestViewModel { get; set; }
+
         public MainWindowViewModel TheMainWindowViewModel { get; set; }
 
         public ViewModelLocator()
         {
             TheTableViewModel = new TableViewModel();
-            TheMainWindowViewModel = new MainWindowViewModel(TheTableViewModel);
+            //TheTestViewModel = new TestViewModel();
+            //TheMainWindowViewModel = new MainWindowViewModel(TheTableViewModel);
+            TheMainWindowViewModel = new MainWindowViewModel();
+
+            //TheMainWindowViewModel = new MainWindowViewModel(TheTestViewModel);
+
         }
 
     }

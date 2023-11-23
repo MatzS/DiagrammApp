@@ -12,7 +12,6 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
     public class RowViewModel: ObservableCollection<FieldViewModel>
     {
         private Row model = new Row();
-
         public Row Model 
         { 
             get 
@@ -23,6 +22,11 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
             {
                 this.model = value;
             }
+        }
+
+        public ObservableCollection<FieldViewModel> Fields
+        {
+            get { return this; }
         }
         
         public void AddField(FieldViewModel fieldModel)

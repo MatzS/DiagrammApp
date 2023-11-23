@@ -11,7 +11,6 @@ namespace De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects
     {
         public Header()
         {
-            this.Add("Time");
         }
     }
 }
