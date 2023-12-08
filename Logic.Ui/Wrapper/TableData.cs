@@ -22,24 +22,42 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
 
         public TableData()
         {
+            this.ColumnHeaders.Add("Zeit");
             this.ColumnHeaders.Add("Spalte 1");
             this.ColumnHeaders.Add("Spalte 2");
             this.ColumnHeaders.Add("Spalte 3");
             ObservableCollection<string> stringList1 = new ObservableCollection<string>();
-            stringList1.Add("Element 1");
-            stringList1.Add("Element 2");
-            stringList1.Add("Element 3");
-            this.Rows.Add(new TableDataRow(stringList1));
+            for(var i = 1; i<11; i++)
+            {
+                stringList1.Add(i.ToString());
+            }
             ObservableCollection<string> stringList2 = new ObservableCollection<string>();
-            stringList2.Add("Element 4");
-            stringList2.Add("Element 5");
-            stringList2.Add("Element 6");
-            this.Rows.Add(new TableDataRow(stringList2));
+            for (var i = 10; i >= 1; i--)
+            {
+                stringList2.Add(i.ToString());
+            }
             ObservableCollection<string> stringList3 = new ObservableCollection<string>();
-            stringList3.Add("Element 7");
-            stringList3.Add("Element 8");
-            stringList3.Add("Element 9");
-            this.Rows.Add(new TableDataRow(stringList3));
+            Random random = new Random();
+            for (var i = 1; i < 11; i++)
+            {
+                string rndNumber = random.Next(1,11).ToString();
+                stringList3.Add(rndNumber);
+            }
+            ObservableCollection<string> stringList4 = new ObservableCollection<string>();
+            for (var i = 1; i < 11; i++)
+            {
+                string rndNumber = random.Next(3, 7).ToString();
+                stringList4.Add(rndNumber);
+            }
+            for (var i = 0; i < 10; i++)
+            {
+                ObservableCollection<string> row = new ObservableCollection<string>();
+                row.Add(stringList1[i]);
+                row.Add(stringList2[i]);
+                row.Add(stringList3[i]);
+                row.Add(stringList4[i]);
+                this.Rows.Add(new TableDataRow(row));
+            }
         }
 
         public ObservableCollection<string> ColumnHeaders { get; } = new ObservableCollection<string>();
@@ -77,6 +95,12 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
         public void RemoveRow()
         {
             Rows.RemoveAt(Rows.Count -1);
+        }
+
+        public void ClearTable()
+        {
+            this.Rows.Clear();
+            this.ColumnHeaders.Clear();
         }
     }
 }

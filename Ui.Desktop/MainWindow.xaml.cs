@@ -1,5 +1,6 @@
 ﻿using De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels;
 using De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic.FileIO;
+using De.HsFlensburg.DiagrammApp.Logic.Ui;
 
 namespace De.HsFlensburg.DiagrammApp.Ui.Desktop
 {
@@ -46,7 +49,6 @@ namespace De.HsFlensburg.DiagrammApp.Ui.Desktop
                 dataGrid.Columns.Add(column);
             }
             dataGrid.ItemsSource = vm.Table.Rows;
-
 
 
             //DataTable table = new DataTable();
@@ -146,6 +148,41 @@ namespace De.HsFlensburg.DiagrammApp.Ui.Desktop
 
             //}
             //dataGrid.ItemsSource = vm.Table.Rows;
+        }
+
+        private void ImportCSVClick(object sender, RoutedEventArgs e)
+        {
+            List<string[]> csvData = new List<string[]>();
+            List<string> headers = new List<string>();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            if(openFileDialog.ShowDialog() == true)
+            {
+                string filepath = openFileDialog.FileName;
+                using (TextFieldParser textFieldParser = new TextFieldParser(filepath))
+                {
+                    textFieldParser.Delimiters = new string[] { "," };
+                    while (!textFieldParser.EndOfData)
+                    {
+                        headers = textFieldParser.ReadFields().ToList<string>();
+                        while(!textFieldParser.EndOfData)
+                        {
+                            var row = textFieldParser.ReadFields();
+                            csvData.Add(row);
+                        }
+                    }
+                    vm.ImportCSV(headers, csvData);
+                }
+            }
+        }
+
+        private void ShowChartWindow(object sender, RoutedEventArgs e)
+        {
+            var viewModelLocator = (ViewModelLocator)Application.Current.Resources["ViewModelLocator"];
+            viewModelLocator.TheChartViewModel.Table = vm.Table;
+            viewModelLocator.TheChartViewModel.SelectedChart = vm.SelectedDiagram;
+            ChartWindow chartWindow = new ChartWindow();
+            chartWindow.Show();
         }
     }
 }

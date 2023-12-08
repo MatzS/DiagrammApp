@@ -1,5 +1,6 @@
 ﻿using De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects;
 using De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper;
+using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
         //private TableViewModel table;
         //private TestViewModel table;
         private TableData table;
+
+        private string selectedDiagram;
         public ICommand DebugCommand { get; }
 
         public ICommand AddColumnCommand { get; }
@@ -25,6 +28,10 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
 
         public ICommand RemoveRowCommand { get; }
 
+        public ICommand ShowChartCommand { get; }
+
+
+        private string filepath = string.Empty;
 
         public MainWindowViewModel()
         {
@@ -36,11 +43,36 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
             RemoveColumnCommand = new RelayCommand(RemoveColumn);
             AddRowCommand = new RelayCommand(AddRow);
             RemoveRowCommand = new RelayCommand(RemoveRow);
+            ShowChartCommand = new RelayCommand(ShowChart);
         }
 
         public TableData Table
         {
             get { return this.table; }
+        }
+
+        public string SelectedDiagram
+        {
+            get 
+            {
+                return this.selectedDiagram;
+            }
+            set
+            {
+                this.selectedDiagram = value;
+            }
+        }
+
+        public string FilePath
+        {
+            get
+            {
+                return this.filepath;
+            }
+            set
+            {
+                this.filepath = value;
+            }
         }
 
         //public TableViewModel Table
@@ -69,7 +101,6 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
         private void DebugModel()
         {
             Console.WriteLine("DEBUG");
-            Reload();
         }
 
         private void AddColumn()
@@ -94,6 +125,25 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
         {
             this.table.RemoveRow();
             Reload();
+        }
+
+        public void ImportCSV(List<string> headers, List<string[]> data)
+        {
+            this.table.ClearTable();
+            foreach(var header in headers)
+            {
+                this.table.ColumnHeaders.Add(header);
+            }
+            foreach(var row in data)
+            {
+                this.table.Rows.Add(new TableDataRow(new ObservableCollection<string>(row)));
+            }
+            this.ReloadRequired.Invoke(this, EventArgs.Empty);
+        }
+
+        public void ShowChart()
+        {
+            
         }
 
         public void Reload()

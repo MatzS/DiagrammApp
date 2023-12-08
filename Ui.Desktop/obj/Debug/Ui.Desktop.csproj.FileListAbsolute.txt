@@ -42,3 +42,5 @@ C:\Users\Computer\Source\Repos\DiagrammApp2\Ui.Desktop\obj\Debug\Ui.Desktop.cspr
 C:\Users\Computer\Source\Repos\DiagrammApp2\Ui.Desktop\obj\Debug\Ui.Desktop.csproj.CopyComplete
 C:\Users\Computer\Source\Repos\DiagrammApp2\Ui.Desktop\obj\Debug\Ui.Desktop.exe
 C:\Users\Computer\Source\Repos\DiagrammApp2\Ui.Desktop\obj\Debug\Ui.Desktop.pdb
+C:\Users\Computer\source\repos\DiagrammApp2\Ui.Desktop\obj\Debug\ChartWindow.g.cs
+C:\Users\Computer\source\repos\DiagrammApp2\Ui.Desktop\obj\Debug\ChartWindow.baml

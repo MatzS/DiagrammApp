@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:De.HsFlensburg.DiagrammApp.Ui.Desktop"
         xmlns:viewModels="clr-namespace:De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels;assembly=Logic.Ui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1000">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}" Path="TheMainWindowViewModel"></Binding>
     </Window.DataContext>
@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Grid.Column="0" SelectedIndex="0" Name="selectionComboBox">
+            <ComboBox Grid.Column="0" SelectedIndex="0" Name="selectionComboBox" SelectedItem="{Binding SelectedDiagram}">
                 <ComboBoxItem>Tortendiagramm</ComboBoxItem>
                 <ComboBoxItem>Balkendiagramm</ComboBoxItem>
                 <ComboBoxItem>Kreisdiagramm</ComboBoxItem>
@@ -34,9 +34,11 @@
             <StackPanel Grid.Column="1" VerticalAlignment="Top">
                 <Button Command="{Binding AddColumnCommand}" Content="Spalte hinzufügen" Width="150"/>
                 <Button Command="{Binding RemoveColumnCommand}" Content="Spalte entfernen" Width="150"/>
-                <Button Command="{Binding AddRowCommand}" Content="Zeile hinzufügen" Width="150"/>
+                <Button Command="{Binding AddRowCommand}" Content="Reihe hinzufügen" Width="150"/>
                 <Button Command="{Binding RemoveRowCommand}" Content="Reihe entfernen" Width="150"/>
-                <Button Command="{Binding DebugCommand}" Content="Diagramm anzeigen" Width="150"/>
+                <Button Click="ShowChartWindow" Content="Chart anzeigen" Width="150"/>
+                <Button Command="{Binding DebugCommand}" Content="Debug" Width="150"/>
+                <Button Click="ImportCSVClick" Content="Import CSV" Width="150"/>
             </StackPanel>
         </Grid>
         <Grid/>

@@ -16,15 +16,15 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui
 
         public MainWindowViewModel TheMainWindowViewModel { get; set; }
 
+        public ChartViewModel TheChartViewModel { get; set; }
         public ViewModelLocator()
         {
             TheTableViewModel = new TableViewModel();
             //TheTestViewModel = new TestViewModel();
             //TheMainWindowViewModel = new MainWindowViewModel(TheTableViewModel);
             TheMainWindowViewModel = new MainWindowViewModel();
-
             //TheMainWindowViewModel = new MainWindowViewModel(TheTestViewModel);
-
+            TheChartViewModel = new ChartViewModel();
         }
 
     }
