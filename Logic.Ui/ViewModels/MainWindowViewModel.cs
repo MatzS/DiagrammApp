@@ -13,9 +13,7 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
 {
     public  class MainWindowViewModel: INotifyPropertyChanged
     {
-        //private TableViewModel table;
-        //private TestViewModel table;
-        private TableData table;
+        private TableViewModel table;
 
         private string selectedDiagram;
         public ICommand DebugCommand { get; }
@@ -35,9 +33,7 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
 
         public MainWindowViewModel()
         {
-            //this.table = new TableViewModel();
-            //this.table = new TestViewModel();
-            this.table = new TableData();
+            this.table = new TableViewModel();
             DebugCommand = new RelayCommand(DebugModel);
             AddColumnCommand = new RelayCommand(AddColumn);
             RemoveColumnCommand = new RelayCommand(RemoveColumn);
@@ -46,7 +42,7 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
             ShowChartCommand = new RelayCommand(ShowChart);
         }
 
-        public TableData Table
+        public TableViewModel Table
         {
             get { return this.table; }
         }
@@ -75,29 +71,6 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
             }
         }
 
-        //public TableViewModel Table
-        //{
-        //    get { return this.table; }
-        //}
-
-        //public TableViewModel Table
-        //{
-        //    get { return this.table; }
-        //}
-
-        //public MainWindowViewModel(TableViewModel table)
-        //{
-        //    this.table = table;
-        //    DebugCommand = new RelayCommand(DebugModel);
-        //    AddHeaderCommand = new RelayCommand(AddHeader);
-        //}
-
-        //public MainWindowViewModel(TestViewModel table)
-        //{
-        //    this.table = table;
-        //    DebugCommand = new RelayCommand(DebugModel);
-        //    AddHeaderCommand = new RelayCommand(AddHeader);
-        //}
         private void DebugModel()
         {
             Console.WriteLine("DEBUG");
@@ -136,7 +109,7 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
             }
             foreach(var row in data)
             {
-                this.table.Rows.Add(new TableDataRow(new ObservableCollection<string>(row)));
+                this.table.Rows.Add(new RowViewModel(new ObservableCollection<string>(row), new Row(new ObservableCollection<string>(row))));
             }
             this.ReloadRequired.Invoke(this, EventArgs.Empty);
         }

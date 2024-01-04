@@ -8,53 +8,26 @@ using System.Threading.Tasks;
 
 namespace De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects
 {
-    public class Table: ObservableCollection<Row>
+    public class Table
     {
-        private Header header = new Header();
-        public Table()
+        private ObservableCollection<string> columnHeaders;
+        private ObservableCollection<Row> rows;
+        public Table(ObservableCollection<string> columnHeaders, ObservableCollection<Row> rows)
         {
-
+            this.columnHeaders = columnHeaders;
+            this.rows = rows;
         }
 
-        public Header Header 
+        public ObservableCollection<string> ColumnHeaders
         {
-            get 
-            { 
-                return header; 
-            }
-            set 
-            {
-                header = value;
-            }
+            get { return this.columnHeaders; }
+            set { this.columnHeaders = value; }
         }
 
-        public void AddRow()
+        public ObservableCollection<Row> Rows
         {
-            Row row = new Row();
-            for(int i = 0; i> header.Count; i++)
-            {
-                row.Add(new Field("Test"));
-            }
-            this.Add(row);
-        }
-
-        public void AddField(Field field = null, int index = 0)
-        {
-            if(field == null)
-            {
-                field = new Field("test");
-            }
-            this[index].Add(field);
-        }
-
-        public void AddHeaderTitle(string title)
-        {
-            this.header.Add(title);
-        }
-
-        public void RemoveHeaderTitle(string title)
-        {
-            this.header.Remove(title);
+            get { return this.rows; }
+            set { this.rows = value; }
         }
     }
 }

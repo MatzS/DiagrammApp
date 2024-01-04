@@ -46,13 +46,8 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\ChartViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="Wrapper\FieldViewModel.cs" />
-    <Compile Include="Wrapper\HeaderViewModel.cs" />
     <Compile Include="Wrapper\RowViewModel.cs" />
-    <Compile Include="Wrapper\TableData.cs" />
-    <Compile Include="Wrapper\TableDataRow.cs" />
     <Compile Include="Wrapper\TableViewModel.cs" />
-    <Compile Include="Wrapper\TestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />
@@ -61,6 +56,10 @@
     <ProjectReference Include="..\Business.Model\Business.Model.csproj">
       <Project>{9ac8d4c2-8a57-4ccc-a647-db4f56bffcc4}</Project>
       <Name>Business.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sercies.MessageBus\Services.MessageBus.csproj">
+      <Project>{4e7fac92-306c-45fe-aca1-c4898a523ec6}</Project>
+      <Name>Services.MessageBus</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

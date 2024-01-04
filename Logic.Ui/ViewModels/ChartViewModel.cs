@@ -9,9 +9,9 @@ namespace De.HsFlensburg.DiagrammApp.Logic.Ui.ViewModels
 {
     public class ChartViewModel
     {
-        private TableData table;
+        private TableViewModel table;
         private string selectedChart;
-        public TableData Table
+        public TableViewModel Table
         {
             get
             {

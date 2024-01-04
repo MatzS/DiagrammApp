@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:De.HsFlensburg.DiagrammApp.Ui.Desktop"
         mc:Ignorable="d"
         Title="ChartWindow" Height="800" Width="1000"
+        WindowState="Maximized"
         Loaded="Window_Loaded">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}" Path="TheChartViewModel"></Binding>

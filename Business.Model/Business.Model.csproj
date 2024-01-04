@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\Field.cs" />
-    <Compile Include="BusinessObjects\Header.cs" />
     <Compile Include="BusinessObjects\Row.cs" />
     <Compile Include="BusinessObjects\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,78 +1,86 @@
-﻿using De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using De.HsFlensburg.DiagrammApp.Business.Model.BusinessObjects;
 
 namespace De.HsFlensburg.DiagrammApp.Logic.Ui.Wrapper
 {
-    public class TableViewModel: ObservableCollection<RowViewModel>
+    [Serializable]
+    public class TableViewModel
     {
-        private Table model = new Table();
-        private HeaderViewModel headerModel = new HeaderViewModel();
-        public TableViewModel() 
+        public TableViewModel(ObservableCollection<string> columnHeaders, ObservableCollection<RowViewModel> rows)
         {
-            //this.AddHeaderTitle("Zeit");
-            //this.AddHeaderTitle("Test1");
-            //this.AddHeaderTitle("Test2");
-            this.AddRow("Spalte1");
-            this.AddRow("Spalte2");
-            this.AddRow("Spalte3");
-        }
-        
-        public HeaderViewModel Header
-        {
-            get { return this.headerModel; }
-        }
-
-        public ObservableCollection<RowViewModel> Rows
-        {
-            get { return this; }
-        }
-
-        public int RowCount
-        {
-            get { return this.Rows.Count;}
-        }
-
-        public void AddRow(string title)
-        {
-            RowViewModel rowViewModel = new RowViewModel();
-            for (int i = 0; i < headerModel.Model.Count; i++)
+            ObservableCollection<Row> rowModels = new ObservableCollection<Row>();
+            for (int i = 0; i < rows.Count; i++)
             {
-                rowViewModel.Add(new FieldViewModel(title+"Value"+i));
+                if (rows[i].Cells.Count != columnHeaders.Count)
+                {
+                    throw new ArgumentException(nameof(rows));
+                }
+                else
+                {
+                    Row row = new Row(rows[i].Cells);
+                    rowModels.Add(row);
+                    rows[i].Model = row;
+                }
             }
-            this.Add(rowViewModel);
-            this.model.AddRow();
+            ColumnHeaders = columnHeaders;
+            Rows = rows;
+            this.model = new Table(columnHeaders, rowModels);
         }
 
-        public void AddField(FieldViewModel fieldViewModel = null, int index = 0)
+        private Table model;
+
+        public TableViewModel()
         {
-            if(fieldViewModel == null)
+
+        }
+
+        public ObservableCollection<string> ColumnHeaders { get; } = new ObservableCollection<string>();
+        public ObservableCollection<RowViewModel> Rows { get; } = new ObservableCollection<RowViewModel>();
+
+        public void AddColumn(string title)
+        {
+            this.ColumnHeaders.Add(title);
+            foreach (var row in this.Rows)
             {
-                fieldViewModel = new FieldViewModel("Test");
-                this.model.AddField(null, index);
+                row.Add("");
             }
-            else
+        }
+
+        public void RemoveColumn()
+        {
+            this.ColumnHeaders.RemoveAt(this.ColumnHeaders.Count - 1);
+            foreach (var row in this.Rows)
             {
-                this.model.AddField(fieldViewModel.Model, index);
+                row.RemoveCell();
             }
-            this[index].Add(fieldViewModel);
         }
 
-        public void AddHeaderTitle(string title)
+        public void AddRow()
         {
-            this.headerModel.Add(title);
-            this.headerModel.Model.Add(title);
+            ObservableCollection<string> stringList = new ObservableCollection<string>();
+            foreach (var header in ColumnHeaders)
+            {
+                stringList.Add("");
+            }
+            var row = new RowViewModel(stringList, new Row(stringList));
+            Rows.Add(row);
         }
 
-        public void RemoveHeaderTitle(string title)
+        public void RemoveRow()
         {
-            this.headerModel.Remove(title);
-            this.headerModel.Model.Remove(title);
+            Rows.RemoveAt(Rows.Count - 1);
+        }
+
+        public void ClearTable()
+        {
+            this.Rows.Clear();
+            this.ColumnHeaders.Clear();
         }
     }
 }
+

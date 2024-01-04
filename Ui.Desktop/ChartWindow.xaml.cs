@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace De.HsFlensburg.DiagrammApp.Ui.Desktop
 {
-    /// <summary>
-    /// Interaction logic for ChartWindow.xaml
-    /// </summary>
     public partial class ChartWindow : Window
     {
         private ChartViewModel vm;
@@ -239,8 +236,8 @@ namespace De.HsFlensburg.DiagrammApp.Ui.Desktop
                 SolidColorBrush lineColor = lineColors[j % lineColors.Length];
                 for (int i = 0; i < this.cols[j].Count - 1; i++)
                 {
-                    double xStart = this.xZeroCord + ((this.cols[0][i] -1 ) * this.xStep);
-                    double xEnd = this.xZeroCord + ((this.cols[0][i+1] - 1) * this.xStep);
+                    double xStart = this.xZeroCord + ((this.cols[0][i]) * this.xStep);
+                    double xEnd = this.xZeroCord + ((this.cols[0][i+1]) * this.xStep);
                     double yStart = this.yZeroCord - (this.cols[j][i] * this.yStep);
                     double yEnd = this.yZeroCord - (this.cols[j][i + 1] * this.yStep);
                     Line line = new Line
