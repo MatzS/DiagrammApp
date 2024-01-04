@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F2BDC0B9-A8EB-40D9-90A0-92122F9BC045}</ProjectGuid>
+    <ProjectGuid>{ED69DA1A-2E09-4865-8E44-82C8276F97B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>De.HsFlensburg.DiagrammApp.Services.MessageBus</RootNamespace>

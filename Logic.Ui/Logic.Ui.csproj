@@ -57,10 +57,6 @@
       <Project>{9ac8d4c2-8a57-4ccc-a647-db4f56bffcc4}</Project>
       <Name>Business.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sercies.MessageBus\Services.MessageBus.csproj">
-      <Project>{4e7fac92-306c-45fe-aca1-c4898a523ec6}</Project>
-      <Name>Services.MessageBus</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

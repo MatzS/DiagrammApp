@@ -1,6 +1,0 @@
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\bin\Debug\Sercies.MessageBus.dll
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\bin\Debug\Sercies.MessageBus.pdb
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\obj\Debug\Services.MessageBus.csproj.AssemblyReference.cache
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\obj\Debug\Services.MessageBus.csproj.CoreCompileInputs.cache
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\obj\Debug\Sercies.MessageBus.dll
-C:\Users\Computer\source\repos\DiagrammApp2\Sercies.MessageBus\obj\Debug\Sercies.MessageBus.pdb

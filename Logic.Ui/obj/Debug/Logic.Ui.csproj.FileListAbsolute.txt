@@ -16,5 +16,3 @@ C:\Users\Computer\Source\Repos\DiagrammApp2\Logic.Ui\obj\Debug\Logic.Ui.csproj.C
 C:\Users\Computer\Source\Repos\DiagrammApp2\Logic.Ui\obj\Debug\Logic.Ui.csproj.CopyComplete
 C:\Users\Computer\Source\Repos\DiagrammApp2\Logic.Ui\obj\Debug\Logic.Ui.dll
 C:\Users\Computer\Source\Repos\DiagrammApp2\Logic.Ui\obj\Debug\Logic.Ui.pdb
-C:\Users\Computer\source\repos\DiagrammApp2\Logic.Ui\bin\Debug\Sercies.MessageBus.dll
-C:\Users\Computer\source\repos\DiagrammApp2\Logic.Ui\bin\Debug\Sercies.MessageBus.pdb
